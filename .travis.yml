@@ -1,0 +1,17 @@
+language: python
+dist: xenial
+python:
+- 2.7
+install:
+- pip install pipenv
+- pipenv install --dev
+- pipenv graph
+script: pipenv run pytest tests
+deploy:
+  provider: pypi
+  user: uc-ctds
+  skip_existing: true
+  on:
+    branch: chore/pypi
+  password:
+    secure: mZlbFe3IKhry5U1SDbBZv3l/zdOhdFic4TyQGLHXON02B3svO6i2vobE5M4dV55ay7Db8yeKUMO85Z4vx9AEBPd3tcAL9ZgWcEcfAYqTr8KEWzz3ER+ryMT2g3a1AK5752xubr+p0my+H0aHlTB6Y97Ppg7egvr0DqnCnE/o66jef//arqXyXi3dGONIS2vos5iOGPahhP/1OV+gsWblOBGmeqQuQrwbb/q0GFWoP6WtSw2EkOHkktsck41rl5hxdrlARV9loIrEzojRF/rIJqLQSVWEMvwfic5/mwoNaQDc5NP1weIPud1NEVas5wdDzOhrRo1UdNCTGX8/b+abzeomDmShRpxc9N0ssIBupluCXMlOp/NStajsBD/e/Jq5hFFDuHbCRJ61Jy8yTFTNYPDhsZm3x8i48bJX3S8M8r49ysJNTmd/VHOM5o9zOBxcthwrgfnwxNZ5qX3A7xD7lu28BiOI2QoE+NkxRKIiX77zYuhBb/1BwMQmYIbHDFuGlxvnPQyIcMHy1YT/hxRIxR4iy8W4KqKvRSYC1aOtG4+qygK1hg9j5iDjbfWfMAtWOSSHmJvmH66zoT7WnIDo3rknrQpL8y87jTGRy5T9nTfN2IB9GeJQYHP7D9TYzAaj+RP1Mk17ZZh6ol8M65ZpP81Yi0zIDcyzMljx3nRdagM=
